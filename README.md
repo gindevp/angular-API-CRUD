@@ -1,6 +1,10 @@
 # AngularCrudProduct
 
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.6.
+
+## API
+https://6355fce4da523ceadc098644.mockapi.io
 
 ## Development server
 
