@@ -7,7 +7,7 @@ import { ProductCreateComponent } from './product/product-create/product-create.
 import { ProductEditComponent } from './product/product-edit/product-edit.component';
 import { ProductListComponent } from './product/product-list/product-list.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {ProductService} from "./service/product.service";
+import {ProductService} from "./service/product/product.service";
 import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
