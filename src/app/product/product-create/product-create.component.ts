@@ -1,8 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import {ProductService} from "../../service/product.service";
+import {ProductService} from "../../service/product/product.service";
 import {FormControl, FormGroup} from "@angular/forms";
-import {Product} from "../../product";
+import {Product} from "../../model/product";
 import {Router} from "@angular/router";
+import swal from "sweetalert";
+import {Category} from "../../model/category";
+import {CategoryService} from "../../service/category/category.service";
 
 @Component({
   selector: 'app-product-create',
@@ -14,13 +17,25 @@ export class ProductCreateComponent implements OnInit {
     id: 0,
     name: "",
     price: 0,
-    description: ""
+    description: "",
+    category: {
+      id: -1,
+      name: ""
+    }
   }
+  categories: Category[]=[];
 
   constructor(private productService: ProductService,
+              private categoryService: CategoryService,
               private router: Router) {
-  }
+    this.getAllCategories();
 
+  }
+getAllCategories(){
+    this.categoryService.getAllCategory().subscribe(categories=>{
+        this.categories=categories;
+      })
+}
   ngOnInit(): void {
   }
 
@@ -36,9 +51,10 @@ export class ProductCreateComponent implements OnInit {
   // }
 
   createProduct() {
+    swal("Thêm thành công", "good", "success")
     this.productService.createProduct(this.product)
       .subscribe(() => {
-        this.router.navigate(['/']);
+        this.router.navigate(['/'])
       });
   }
 }

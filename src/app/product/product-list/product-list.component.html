@@ -6,6 +6,7 @@
     <td>Tên</td>
     <td>Giá</td>
     <td>Mô tả</td>
+    <td>Thể loại</td>
     <td colspan="2" style="text-align: center">Hành động</td>
   </tr>
   </thead>
@@ -15,6 +16,7 @@
     <td>{{product.name}}</td>
     <td>{{product.price}}</td>
     <td>{{product.description}}</td>
+    <td>{{product.category.name}}</td>
     <td style="text-align: center"><button type="button" class="btn btn-outline-warning" [routerLink]="['/edit/',product.id]" style="width: 40%">Edit</button></td>
     <td style="text-align: center"><button type="button" class="btn  btn-outline-danger" (click)="delete(product.id)" style="width: 30%">Delete</button></td>
   </tr>
