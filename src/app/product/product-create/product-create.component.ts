@@ -31,6 +31,7 @@ export class ProductCreateComponent implements OnInit {
     this.getAllCategories();
 
   }
+
 getAllCategories(){
     this.categoryService.getAllCategory().subscribe(categories=>{
         this.categories=categories;

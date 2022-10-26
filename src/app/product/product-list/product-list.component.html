@@ -11,12 +11,12 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let product of products; index as i">
+  <tr *ngFor="let product of products; index as i" >
     <td>{{i + 1}}</td>
     <td>{{product.name}}</td>
     <td>{{product.price}}</td>
     <td>{{product.description}}</td>
-    <td>{{product.category.name}}</td>
+    <td [innerText]="findNameCateById(product.category.id)"></td>
     <td style="text-align: center"><button type="button" class="btn btn-outline-warning" [routerLink]="['/edit/',product.id]" style="width: 40%">Edit</button></td>
     <td style="text-align: center"><button type="button" class="btn  btn-outline-danger" (click)="delete(product.id)" style="width: 30%">Delete</button></td>
   </tr>

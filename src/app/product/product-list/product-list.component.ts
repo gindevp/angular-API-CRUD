@@ -12,10 +12,11 @@ import {CategoryService} from "../../service/category/category.service";
 })
 export class ProductListComponent implements OnInit {
   products: Product[] = [];
-  // categories: Category[] = [];
+  categories: Category[] = [];
 
   constructor(private productService: ProductService,private  categoryService: CategoryService) {
     this.getAll();
+    this.getAllCategories();
   }
 
   ngOnInit(){
@@ -57,11 +58,23 @@ export class ProductListComponent implements OnInit {
       });
 
   }
-  // getAllCategories(){
-  //   this.categoryService.getAllCategory().subscribe(categories=>{
-  //     this.categories = categories;
-  //   })
-  // }
+  getAllCategories(){
+    this.categoryService.getAllCategory().subscribe(categories=>{
+      this.categories = categories;
+    })
+  }
+  findNameCateById(id: number): string {
+    // @ts-ignore
+    let rs:string;
+    for(let i=0; i<this.categories.length; i++){
+      if(this.categories[i].id==id){
+        rs=this.categories[i].name;
+        return rs;
+      }
+    }
+// @ts-ignore
+    return null;
+  }
   // findProduct(product: any){
   //   console.log(product)
   //   return this.productService.findProduct(product);
